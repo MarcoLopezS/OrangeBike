@@ -1,0 +1,262 @@
+$naranja = #F57B13
+$naranja-oscuro-1 = #B95907
+$naranja-oscuro-2 = #3A1C02
+$plomo-claro = #BEBCBB
+$plomo-claro-2 = #F5F5F5
+$negro = #151614
+$fontOpenSans = 'Open Sans'
+$fontRaleway = 'Raleway'
+$fontTiti = 'Titillium Web'
+
+/* ENCABEZADOS */
+h1,h2,h3,h4,h5,h6
+	font-family $fontTiti
+	font-weight 700
+	text-transform uppercase
+
+/* SOCIAL MEDIA */
+p.social-skew
+	background $naranja
+	height 50px
+	margin-top 0px
+	position relative
+	width 100%
+	padding-left 70px
+	
+	a
+		margin-top 15px
+		margin-left 8px
+		display inline-block
+		color #fff
+		transition all 0.4s ease
+		
+		&:hover
+			color $negro
+		
+		& i.fa
+			font-size 18px
+	
+	&:before
+		border-right 50px solid transparent
+		border-top 50px solid $negro
+		content ""
+		height 0
+		left 0
+		position absolute
+		top 0
+		width 0
+
+/* BARRA SUPERIOR */
+#topbar
+	background $negro
+	position relative
+	overflow hidden
+	
+	p
+		i
+			margin-right 10px
+	
+	.email-address
+		
+		a
+			color $plomo-claro
+		
+	.address, .email-address
+		color $plomo-claro
+		font-family $fontOpenSans
+		font-size 16px
+		margin-top 15px
+	
+	.address, .email-address, .social
+		
+		p
+			margin-bottom 0px
+			font-size 14px
+	
+	span
+		
+		&.topbar-right
+			position absolute
+			left 75%
+			width 100%
+			background $naranja
+			height 50px
+
+/* MENU SUPERIOR */
+#main-navigation
+	position absolute
+	top 50px !important
+	width 100%
+	transition all 0.9s ease
+	z-index 100
+	
+	.logo
+		
+		img
+			height 40px
+
+.navbar
+	border-radius 0
+	padding 16px 0
+	margin-bottom 0px
+	transition all 0.5s ease
+	
+	&>.container
+		
+		.navbar-brand
+			margin-left 0
+			padding 0
+			height auto
+			
+			img
+				display block
+
+.navbar-collapse
+	
+	&.collapse
+		margin-top 10px
+
+
+.navbar-default
+	background-color rgba(21,22,20,0.7)
+	border-color transparent
+	
+	.navbar-nav
+		
+		&>.active
+			
+			&>a, &>a:focus, &>a:hover
+				background-color transparent
+				color $negro
+				padding-top 5px
+				padding-bottom 5px
+
+		
+		&>li
+			font-family $fontRaleway
+			background rgba(255,168,0,0)
+			color #fff
+			font-size 14px
+			margin-left 10px
+			text-transform uppercase
+			transition all 0.4s ease
+			
+			&>a
+				color #fff
+				padding-top 5px
+				padding-bottom 5px
+			
+			&.active, &:hover
+				background $naranja
+				color $negro
+				border-radius 15px
+
+/* SLIDER */
+.tp-banner-container
+	width 100%
+	position relative
+	padding 0
+
+/* PATROCINADORES */
+#patrocinadores
+	
+	li
+		display inline-block
+		margin 10px
+		border 1px solid #ccc
+		padding 15px 50px
+
+/* SOCIAL MEDIA */
+#orange-social
+	padding 10px 20px
+	background $naranja
+	border-bottom 3px solid $naranja-oscuro-1
+	margin 30px 0 0 0
+	
+	h3
+		text-align center
+		margin-top 20px
+		margin-bottom 20px
+		display block
+		font-size 38px
+		line-height 38px
+		font-family $fontTiti
+		color #FFF
+		font-weight 400
+		text-transform uppercase
+	
+	ul
+		padding 0
+		text-align center
+		
+		li
+			display inline-block
+			
+			a
+				margin-top 20px
+				color $naranja-oscuro-2
+				float left
+				width 105px
+				text-align center
+				border-right 1px solid $plomo-claro
+				text-decoration non
+				
+				&:hover
+					opacity 0.8
+			
+			&:last-child
+				
+				a
+					border none
+					
+
+/* ENLACE BICICENTRO */
+.enter-shop
+	position relative
+	margin-top 30px
+	border-bottom 3px solid $naranja-oscuro-1
+	background-color #fff
+	height 226px
+	background-color $plomo-claro-2
+	padding 10px 20px
+	
+	h3
+		text-align center
+		margin-top 20px
+		margin-bottom 20px
+		display block
+		font-size 38px
+		line-height 38px
+		font-family $fontTiti
+		color $negro
+		font-weight 700
+		text-transform uppercase
+	
+	img
+		float left
+		padding-left 15px
+	
+	p
+		overflow hidden
+	
+	.enter-shop-link
+		color #008194
+		font-size 28px
+		font-weight bold
+		font-family $fontTiti
+		position absolute
+		right 20px
+		bottom 10px
+		text-decoration none
+		
+		&:hover
+			text-decoration underline
+
+
+/* FOOTER */
+footer
+	background-color $negro
+	color $plomo-claro
+	margin-top 20px
+	padding 20px 0
+	text-align center

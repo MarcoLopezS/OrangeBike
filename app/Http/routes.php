@@ -11,10 +11,26 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+//HOME
+Route::group(['namespace' => 'Frontend'], function() {
 
+	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+	Route::get('team', ['as' => 'home.team', 'uses' => 'HomeController@team']);
+	Route::get('noticias', ['as' => 'home.noticias', 'uses' => 'HomeController@noticias']);
+	Route::get('galeria-fotos', ['as' => 'home.fotos', 'uses' => 'HomeController@fotos']);
+	Route::get('galeria-videos', ['as' => 'home.videos', 'uses' => 'HomeController@videos']);
+	Route::get('contacto', ['as' => 'home.contacto', 'uses' => 'HomeController@contacto']);
+	Route::get('calendario', ['as' => 'home.calendario', 'uses' => 'HomeController@calendario']);
+	Route::get('patrocinadores', ['as' => 'home.patrocinadores', 'uses' => 'HomeController@patrocinadores']);
+	Route::get('historia', ['as' => 'home.historia', 'uses' => 'HomeController@historia']);
+
+});
+
+
+//IMAGEN
 Route::get('/upload/{folder}/{width}x{height}/{image}', ['as' => 'image.adaptiveResize', 'uses' => 'ImageController@adaptiveResize']);
 
+//LOGIN - PASSWORD
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -87,7 +103,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	//USUARIOS
 	Route::resource('user', 'UsersController');
 	Route::post('user/{user}/password', ['as' => 'admin.user.updatePassword', 'uses' => 'UsersController@updatePassword']);
-
-
 
 });

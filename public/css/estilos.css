@@ -1,0 +1,241 @@
+/* ENCABEZADOS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Titillium Web';
+  font-weight: 700;
+  text-transform: uppercase;
+}
+/* SOCIAL MEDIA */
+p.social-skew {
+  background: #f57b13;
+  height: 50px;
+  margin-top: 0px;
+  position: relative;
+  width: 100%;
+  padding-left: 70px;
+}
+p.social-skew a {
+  margin-top: 15px;
+  margin-left: 8px;
+  display: inline-block;
+  color: #fff;
+  transition: all 0.4s ease;
+}
+p.social-skew a:hover {
+  color: #151614;
+}
+p.social-skew a i.fa {
+  font-size: 18px;
+}
+p.social-skew:before {
+  border-right: 50px solid transparent;
+  border-top: 50px solid #151614;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 0;
+}
+/* BARRA SUPERIOR */
+#topbar {
+  background: #151614;
+  position: relative;
+  overflow: hidden;
+}
+#topbar p i {
+  margin-right: 10px;
+}
+#topbar .email-address a {
+  color: #bebcbb;
+}
+#topbar .address,
+#topbar .email-address {
+  color: #bebcbb;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  margin-top: 15px;
+}
+#topbar .address p,
+#topbar .email-address p,
+#topbar .social p {
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+#topbar span.topbar-right {
+  position: absolute;
+  left: 75%;
+  width: 100%;
+  background: #f57b13;
+  height: 50px;
+}
+/* MENU SUPERIOR */
+#main-navigation {
+  position: absolute;
+  top: 50px !important;
+  width: 100%;
+  transition: all 0.9s ease;
+  z-index: 100;
+}
+#main-navigation .logo img {
+  height: 40px;
+}
+.navbar {
+  border-radius: 0;
+  padding: 16px 0;
+  margin-bottom: 0px;
+  transition: all 0.5s ease;
+}
+.navbar>.container .navbar-brand {
+  margin-left: 0;
+  padding: 0;
+  height: auto;
+}
+.navbar>.container .navbar-brand img {
+  display: block;
+}
+.navbar-collapse.collapse {
+  margin-top: 10px;
+}
+.navbar-default {
+  background-color: rgba(21,22,20,0.7);
+  border-color: transparent;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+  background-color: transparent;
+  color: #151614;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.navbar-default .navbar-nav>li {
+  font-family: 'Raleway';
+  background: rgba(255,168,0,0);
+  color: #fff;
+  font-size: 14px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.navbar-default .navbar-nav>li.active,
+.navbar-default .navbar-nav>li:hover {
+  background: #f57b13;
+  color: #151614;
+  border-radius: 15px;
+}
+/* SLIDER */
+.tp-banner-container {
+  width: 100%;
+  position: relative;
+  padding: 0;
+}
+/* PATROCINADORES */
+#patrocinadores li {
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 15px 50px;
+}
+/* SOCIAL MEDIA */
+#orange-social {
+  padding: 10px 20px;
+  background: #f57b13;
+  border-bottom: 3px solid #b95907;
+  margin: 30px 0 0 0;
+}
+#orange-social h3 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 38px;
+  line-height: 38px;
+  font-family: 'Titillium Web';
+  color: #fff;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+#orange-social ul {
+  padding: 0;
+  text-align: center;
+}
+#orange-social ul li {
+  display: inline-block;
+}
+#orange-social ul li a {
+  margin-top: 20px;
+  color: #3a1c02;
+  float: left;
+  width: 105px;
+  text-align: center;
+  border-right: 1px solid #bebcbb;
+  text-decoration: non;
+}
+#orange-social ul li a:hover {
+  opacity: 0.8;
+}
+#orange-social ul li:last-child a {
+  border: none;
+}
+/* ENLACE BICICENTRO */
+.enter-shop {
+  position: relative;
+  margin-top: 30px;
+  border-bottom: 3px solid #b95907;
+  background-color: #fff;
+  height: 226px;
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+}
+.enter-shop h3 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 38px;
+  line-height: 38px;
+  font-family: 'Titillium Web';
+  color: #151614;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.enter-shop img {
+  float: left;
+  padding-left: 15px;
+}
+.enter-shop p {
+  overflow: hidden;
+}
+.enter-shop .enter-shop-link {
+  color: #008194;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Titillium Web';
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  text-decoration: none;
+}
+.enter-shop .enter-shop-link:hover {
+  text-decoration: underline;
+}
+/* FOOTER */
+footer {
+  background-color: #151614;
+  color: #bebcbb;
+  margin-top: 20px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/*# sourceMappingURL=estilos.css.map */
