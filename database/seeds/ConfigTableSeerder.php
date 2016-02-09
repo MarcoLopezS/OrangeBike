@@ -8,8 +8,8 @@ class ConfigTableSeeder extends Seeder {
     {
         \DB::table('configurations')->insert([
     		'id' 			=> 1,
-            'titulo'		=> 'Administrador de Contenido',
-            'dominio'		=> 'http://cms.dev/',
+            'titulo'		=> 'Orange Bike Perú',
+            'dominio'		=> 'http://orange.dev/',
             'keywords'		=> 'administrador, cms',
             'description'	=> 'Administrador de contenido en L5',
             'twitter'		=> 'marostsac',
