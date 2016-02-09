@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'model' => 'Cms\Entities\User',
+	'model' => 'OrangeBike\Entities\User',
 
 	/*
 	|--------------------------------------------------------------------------
