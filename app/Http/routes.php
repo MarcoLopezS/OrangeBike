@@ -16,9 +16,18 @@ Route::group(['namespace' => 'Frontend'], function() {
 
 	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 	Route::get('team', ['as' => 'home.team', 'uses' => 'HomeController@team']);
-	Route::get('noticias', ['as' => 'home.noticias', 'uses' => 'HomeController@noticias']);
-	Route::get('galeria-fotos', ['as' => 'home.fotos', 'uses' => 'HomeController@fotos']);
-	Route::get('galeria-videos', ['as' => 'home.videos', 'uses' => 'HomeController@videos']);
+
+	//BLOG
+	Route::group(['prefix' => 'blog'], function(){
+		Route::get('/', ['as' => 'home.blog', 'uses' => 'HomeController@blog']);
+		Route::get('{id}-{url}', ['as' => 'home.blog.noticia', 'uses' => 'HomeController@noticia']);
+		Route::get('categoria/{url}', ['as' => 'home.blog.categoria', 'uses' => 'HomeController@noticiaCategoria']);
+		Route::get('tag/{url}', ['as' => 'home.blog.tag', 'uses' => 'HomeController@noticiaTag']);
+	});
+
+	Route::get('fotos', ['as' => 'home.fotos', 'uses' => 'HomeController@fotos']);
+	Route::get('fotos-nota', ['as' => 'home.fotos.nota', 'uses' => 'HomeController@fotosNota']);
+	Route::get('videos', ['as' => 'home.videos', 'uses' => 'HomeController@videos']);
 	Route::get('contacto', ['as' => 'home.contacto', 'uses' => 'HomeController@contacto']);
 	Route::get('calendario', ['as' => 'home.calendario', 'uses' => 'HomeController@calendario']);
 	Route::get('patrocinadores', ['as' => 'home.patrocinadores', 'uses' => 'HomeController@patrocinadores']);
