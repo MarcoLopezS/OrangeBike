@@ -20,4 +20,13 @@ class GalleryRepo extends BaseRepo {
                     ->orderBy('published_at', 'desc')
                     ->paginate();
     }
+
+    //BUSCAR ULTIMA GALERIA
+    public function findGalleryLast()
+    {
+        return $this->getModel()
+                    ->where('publicar', 1)
+                    ->orderBy('published_at', 'desc')
+                    ->first();
+    }
 }
