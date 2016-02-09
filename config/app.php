@@ -139,6 +139,7 @@ return [
 		/* Providers externos */
 		'Collective\Html\HtmlServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
 
 		/*
@@ -202,6 +203,7 @@ return [
 		'Form' 		=> 'Collective\Html\FormFacade',
       	'HTML' 		=> 'Collective\Html\HtmlFacade',
       	'Image' 	=> 'Intervention\Image\Facades\Image',
+      	'Debugbar'  => 'Barryvdh\Debugbar\Facade',
         'Flash'     => 'Laracasts\Flash\Flash'
 
 	],
