@@ -32,4 +32,16 @@ class PostRepo extends BaseRepo{
                     ->orderBy('published_at', 'desc')
                     ->paginate();
     }
+
+    //FUNCION PARA MOSTRAR NOTICIAS Y PAGINARLAS
+    public function postPaginate($paginate)
+    {
+        return $this->getModel()->where('publicar','1')->orderBy('published_at','desc')->paginate($paginate);
+    }
+
+    //NOTICIA SELECCIONADA
+    public function postSelect($id, $url)
+    {
+        return $this->getModel()->where('id',$id)->where('slug_url',$url)->first();
+    }
 }
