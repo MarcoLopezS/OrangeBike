@@ -360,6 +360,19 @@ class CreateInitialTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::create('sliders', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->text('header');
+            $table->text('body');
+            $table->text('footer');
+
+            $table->integer('user_id')->nullable()->default(NULL);
+
+            $table->timestamps();
+        });
 	}
 
 	/**
@@ -369,6 +382,7 @@ class CreateInitialTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::drop('sliders');
         Schema::drop('contacto_mensajes');
         Schema::drop('configurations');
         Schema::drop('gallery_photos');

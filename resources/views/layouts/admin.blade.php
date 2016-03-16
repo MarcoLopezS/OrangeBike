@@ -155,7 +155,29 @@
 							Videos</a>
 						</li>
 					</ul>
-				</li>				
+				</li>
+
+                <li {!! (Request::is('admin/slider*') ? 'class="active open"' : '') !!}>
+                    <a href="{{ route('admin.slider.edit', 1) }}">
+                        <i class="icon-screen-desktop"></i>
+                        <span class="title">Slider</span>
+                    </a>
+                </li>
+
+                <li {!! (Request::is('admin/contacto*') ? 'class="active open"' : '') !!}>
+                    <a href="javascript:;">
+                        <i class="icon-envelope"></i>
+                        <span class="title">Contacto</span>
+                        {!! (Request::is('admin/contacto*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
+                    </a>
+                    <ul class="sub-menu">
+                        <li {!! (Request::is('admin/contacto/mensajes*') ? 'class="active"' : '') !!}>
+                            <a href="{{ route('admin.contacto.mensajes.index') }}">
+                                <i class="icon-speech"></i>
+                                Mensajes</a>
+                        </li>
+                    </ul>
+                </li>
 
 				<li {!! (Request::is('admin/user*') ? 'class="active open"' : '') !!}>
 					<a href="javascript:;">

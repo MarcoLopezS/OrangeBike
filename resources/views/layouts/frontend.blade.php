@@ -24,8 +24,6 @@
     {!! HTML::style('js/fancybox/jquery.fancybox.css?v=2.1.4') !!}
     {!! HTML::style('css/mosaic.css') !!}
     {!! HTML::style('css/responsive.css') !!}
-    {!! HTML::style('css/rs-plugin.css') !!}
-    {!! HTML::style('js/rs-plugin/css/settings.css') !!}
     {!! HTML::style('css/tooltipster.css') !!}
     {!! HTML::style('css/mega.css') !!}
 
@@ -169,8 +167,6 @@
     {!! HTML::script('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js') !!}
 
     <!-- Start Scripts -->
-    {!! HTML::script('js/rs-plugin/js/jquery.themepunch.tools.min.js') !!}
-    {!! HTML::script('js/rs-plugin/js/jquery.themepunch.revolution.min.js') !!}
     {!! HTML::script('js/jquery.sidr.js') !!}
     {!! HTML::script('js/fancybox/jquery.fancybox.js?v=2.1.4') !!}
     {!! HTML::script('js/cleantabs.jquery.js') !!}

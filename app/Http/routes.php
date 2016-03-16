@@ -88,6 +88,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 
 	});
 
+    //SLIDER
+    Route::resource('slider', 'SlidersController', ['only' => ['edit','update']]);
+
 	//CONFIGURACION
 	Route::get('config', ['as' => 'admin.config', 'uses' => 'ConfigsController@edit']);
 	Route::put('config', ['as' => 'admin.config.update', 'uses' => 'ConfigsController@update']);
@@ -95,5 +98,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	//USUARIOS
 	Route::resource('user', 'UsersController');
 	Route::post('user/{user}/password', ['as' => 'admin.user.updatePassword', 'uses' => 'UsersController@updatePassword']);
+
+    //CONTACTO - MENSAJES
+    Route::resource('contacto/mensajes', 'ContactoMensajesController', ['only' => ['index','show']]);
 
 });

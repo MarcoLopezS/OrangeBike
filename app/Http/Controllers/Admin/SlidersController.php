@@ -1,9 +1,15 @@
-<?php
+<?php namespace OrangeBike\Http\Controllers\Admin;
+
+use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
+use OrangeBike\Http\Controllers\Controller;
 
 use OrangeBike\Entities\Slider;
 use OrangeBike\Repositories\SliderRepo;
 
-class AdminSlidersController extends \BaseController {
+class SlidersController extends Controller {
 
     protected $sliderRepo;
 
@@ -11,66 +17,6 @@ class AdminSlidersController extends \BaseController {
     {
         $this->sliderRepo = $sliderRepo;
     }
-
-	/**
-	 * Display a listing of the resource.
-	 * GET /adminsliders
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$sliders = $this->sliderRepo->orderBy('orden', 'asc');
-
-        return View::make('admin.sliders.list', compact('sliders'));
-
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /adminsliders/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return View::make('admin.sliders.upload');
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /adminsliders
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-        //CREAR CARPETA CON FECHA Y MOVER IMAGEN
-        CrearCarpeta();
-        $ruta = "upload/".FechaCarpeta();
-        $ruta_fecha = FechaCarpeta();
-        $archivo = Input::file('file');
-        $file = FileMove($archivo,$ruta);
-
-        //GUARDAR DATOS
-        $photo = new Slider();
-        $photo->imagen = $file;
-        $photo->imagen_carpeta = $ruta_fecha;
-        $photo->user_id = Auth::user()->id;
-        $photo->save();
-	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /adminsliders/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-
-	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -81,7 +27,9 @@ class AdminSlidersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        $post = Slider::whereId(1)->first();
+
+        return view('admin.sliders.edit', compact('post'));
 	}
 
 	/**
@@ -91,21 +39,24 @@ class AdminSlidersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
+        $postPhoto = $this->sliderRepo->findOrFail($id);
 
-	}
+        $rules = [
+            'header' => 'string',
+            'body' => 'string',
+            'footer' => 'string'
+        ];
 
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /adminsliders/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+        //VALIDACION DE DATOS
+        $this->validate($request, $rules);
+
+        //GUARDAR DATOS
+        $this->sliderRepo->update($postPhoto, $request->all());
+
+        //REDIRECCIONAR A PAGINA PARA VER DATOS
+        return redirect()->route('admin.slider.edit', 1);
 	}
 
 }
