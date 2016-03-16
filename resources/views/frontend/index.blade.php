@@ -34,44 +34,6 @@
     
     <!-- Start Outter Wrapper -->
     <div class="outter-wrapper divider"></div>
-    	
-	<!-- Start Outter Wrapper -->
-	<div class="outter-wrapper centered feat-block-1">
-		<div class="wrapper ad-pad clearfix">
-		
-			<!-- Start Carousel -->
-			<div class="owl-carousel-container ">
-    			<!-- Carousel Nav -->
-    			<div class="customNavigation">
-    			    <a class="prev"></a>
-    			    <a class="next"></a>
-    			</div>
-			
-    			<div id="carousel-single" class="owl-carousel carousel-single">
-
-                    <!-- Carousel Item -->
-                    <div class="item col-2-3 nofloat">
-                        <blockquote>"Si en realidad amas el deporte, debes luchar por alcanzar tu sueño, algunas veces ganarás y otras veces perderás, pero al final, después de una dura lucha, podrás alcanzar el triunfo."</blockquote>
-                    </div>
-
-                    <!-- Carousel Item -->
-                    <div class="item col-2-3 nofloat">
-                        <blockquote>"No hay que tener ningun miedo a perder, de hecho he perdido muchas más carreras de las que he ganado." <cite>- Miguel Indurain</cite></blockquote>
-                    </div>
-
-                    <!-- Carousel Item -->
-                    <div class="item col-2-3 nofloat">
-                        <blockquote>"Las medallas se ganan en el entrenamiento y se recogen en la carrera."</blockquote>
-                    </div>
-
-	    		</div>
-			</div>
-			
-		</div>
-	</div>
-	
-	<!-- Start Outter Wrapper -->
-	<div class="outter-wrapper divider"></div>
 
 	<!-- Start Outter Wrapper -->
 	<div class="outter-wrapper">
