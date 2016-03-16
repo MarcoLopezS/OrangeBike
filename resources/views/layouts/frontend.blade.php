@@ -177,12 +177,10 @@
     {!! HTML::script('js/placeholder.js') !!}
     {!! HTML::script('js/jquery.stellar.min.js') !!}
     {!! HTML::script('js/mosaic.1.0.1.js') !!}
-    {!! HTML::script('js/jquery.isotope.js') !!}
     {!! HTML::script('js/toggle.js') !!}
     {!! HTML::script('js/jquery.tooltipster.js') !!}
     {!! HTML::script('js/jquery.countdown.js') !!}
     {!! HTML::script('js/jquery.sticky.js') !!}
-    {!! HTML::script('js/slider-3.js') !!}
 
     {!! HTML::script('js/main.js') !!}
 

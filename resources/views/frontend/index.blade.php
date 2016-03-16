@@ -2,97 +2,10 @@
 
 @section('contenido_body')
 
-	<!-- Revolution Slider -->
-	<div class="tp-banner-container">
-		<div class="tp-banner" >
-			<ul>
-				
-				<li data-transition="slidehorizontal" data-slotamount="1" data-masterspeed="1000"  data-fstransition="fade" data-fsmasterspeed="1000"  data-saveperformance="off">
-					<!-- MAIN IMAGE -->
-					<img src="img/media/Sprinkle.jpg"  alt="Title"  data-bgposition="left center" data-bgfit="cover" data-bgrepeat="no-repeat">
-					<!-- LAYERS -->
-			
-					<!-- LAYER NR. 1 -->
-					<div class="tp-caption tp-fade fadeout fullscreenvideo"
-						data-x="0"
-						data-y="0"
-						data-speed="1000"
-						data-start="1100"
-						data-easing="Power4.easeOut"
-						data-elementdelay="0.01"
-						data-endelementdelay="0.1"
-						data-endspeed="1500"
-						data-endeasing="Power4.easeIn"
-						data-autoplay="true"
-						data-autoplayonlyfirsttime="false"
-						data-nextslideatend="false"
-			 			data-volume="mute" data-forceCover="1" data-aspectratio="16:9" data-forcerewind="on" >
-				
-						<video controls style="width: 100%; height: 100%" poster="img/media/Sprinkle.jpg" loop>
-						<source src="img/media/Sprinkle.webm"  type='video/webm;codecs="vp8, vorbis"' />
-						<source src="img/media/Sprinkle.mp4"   type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-						<source src="img/media/Sprinkle.ogv" type='video/ogg; codecs="theora, vorbis"'>
-						</video>
-					</div>
-					
-					<!-- LAYER NR. 2 -->
-					<div class="tp-caption fadeout sfr sport-rs-boxed sport-rs-heading"
-						data-x="0" data-hoffset="0"
-						data-y="215" data-voffset="0"
-						data-captionhidden="off"
-						data-speed="800"
-						data-start="500"
-						data-easing="Power4.easeInOut"
-						data-splitin="none"
-						data-splitout="none"
-						data-elementdelay="0.05"
-						data-endelementdelay="0.1"
-						data-endspeed="1000"
-						data-endeasing="Power1.easeOut">
-						Our Blood, Our Sweat,<br/> 
-						Your Tears <div>- CLUB MOTTO</div>
-					</div>
-					
-					<!-- LAYER NR. 3 -->
-					<div class="tp-caption fadeout sfr sport-rs-boxed sport-rs-text"
-						data-x="0" data-hoffset="0"
-						data-y="340" data-voffset="0"
-						data-captionhidden="off"
-						data-speed="800"
-						data-start="750"
-						data-easing="Power4.easeInOut"
-						data-splitin="none"
-						data-splitout="none"
-						data-elementdelay="0.05"
-						data-endelementdelay="0.1"
-						data-endspeed="1000"
-						data-endeasing="Power1.easeOut">
-						Cum sociis natoque penatibus et magnis dis parturient montes,<br/> 
-						nascetur ridiculus mus. Maecenas sed diam eget risus varius<br/>
-						 blandit sit amet non magna... 
-					</div>
-					
-					<!-- LAYER NR. 4 -->
-					<div class="tp-caption fadeout sfr tp-resizeme"
-						data-x="0" data-hoffset="0"
-						data-y="460" data-voffset="0"
-						data-speed="800"
-						data-start="1000"
-						data-easing="Power4.easeInOut"
-						data-splitin="none"
-						data-splitout="none"
-						data-elementdelay="0.05"
-						data-endelementdelay="0.1"
-						data-endspeed="1000"
-						data-endeasing="Power1.easeOut">
-						<a class="btn" href="pricing1.html">Join Our Club Today</a>&nbsp; <a class="btn-2" href="about.html">Read More</a>
-					</div>	
-				</li>
-				
-
-			</ul>
-		</div>
-	</div>
+    {{-- Slider --}}
+    @if(Request::is('/'))
+        {!! $slider->body !!}
+    @endif
     	
 	<!-- Start Outter Wrapper -->
 	<div class="outter-wrapper body-wrapper">		
@@ -190,5 +103,14 @@
 						
 		</div>
 	</div>
+
+@stop
+
+@section('contenido_footer')
+
+    @if(Request::is('/'))
+        {!! $slider->header !!}
+        {!! $slider->footer !!}
+    @endif
 
 @stop
