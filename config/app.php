@@ -141,6 +141,7 @@ return [
 		'Intervention\Image\ImageServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
+        'Jenssegers\Date\DateServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -204,7 +205,8 @@ return [
       	'HTML' 		=> 'Collective\Html\HtmlFacade',
       	'Image' 	=> 'Intervention\Image\Facades\Image',
       	'Debugbar'  => 'Barryvdh\Debugbar\Facade',
-        'Flash'     => 'Laracasts\Flash\Flash'
+        'Flash'     => 'Laracasts\Flash\Flash',
+        'Date'      => 'Jenssegers\Date\Date'
 
 	],
 

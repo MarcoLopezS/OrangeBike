@@ -1,21 +1,9 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 //HOME
 Route::group(['namespace' => 'Frontend'], function() {
 
 	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-	Route::get('team', ['as' => 'home.team', 'uses' => 'HomeController@team']);
 
 	//BLOG
 	Route::group(['prefix' => 'blog'], function(){
@@ -25,13 +13,8 @@ Route::group(['namespace' => 'Frontend'], function() {
 		Route::get('tag/{url}', ['as' => 'home.blog.tag', 'uses' => 'HomeController@noticiaTag']);
 	});
 
-	Route::get('fotos', ['as' => 'home.fotos', 'uses' => 'HomeController@fotos']);
-	Route::get('fotos-nota', ['as' => 'home.fotos.nota', 'uses' => 'HomeController@fotosNota']);
-	Route::get('videos', ['as' => 'home.videos', 'uses' => 'HomeController@videos']);
 	Route::get('contacto', ['as' => 'home.contacto', 'uses' => 'HomeController@contacto']);
-	Route::get('calendario', ['as' => 'home.calendario', 'uses' => 'HomeController@calendario']);
-	Route::get('patrocinadores', ['as' => 'home.patrocinadores', 'uses' => 'HomeController@patrocinadores']);
-	Route::get('historia', ['as' => 'home.historia', 'uses' => 'HomeController@historia']);
+    Route::post('contacto', ['as' => 'home.contacto.post', 'uses' => 'HomeController@postContacto']);
 
 });
 

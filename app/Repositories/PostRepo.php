@@ -44,4 +44,10 @@ class PostRepo extends BaseRepo{
     {
         return $this->getModel()->where('id',$id)->where('slug_url',$url)->first();
     }
+
+    //UTLIMAS NOTICIAS
+    public function lastPost()
+    {
+        return $this->getModel()->orderBy('created_at','desc')->paginate(5);
+    }
 }

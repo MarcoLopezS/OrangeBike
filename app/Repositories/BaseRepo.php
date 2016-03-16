@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+use Jenssegers\Date\Date;
+
 abstract class BaseRepo {
 
     const PAGINATE = true;
@@ -77,6 +79,15 @@ abstract class BaseRepo {
     public function findTrash($id)
     {
         return $this->getModel()->onlyTrashed()->findOrFail($id);
+    }
+
+    /* FECHA TEXTO */
+    public function fechaTexto($datetime)
+    {
+        Date::setLocale('es');
+        $fecha = Date::create($datetime->year, $datetime->month, $datetime->day, $datetime->hour, $datetime->minute, $datetime->second);
+        $fecha = $fecha->format('d \\d\\e F \\d\\e\\l Y');
+        return $fecha;
     }
 
     //CARPETA CON NOMBRE DEL MES ACTUAL

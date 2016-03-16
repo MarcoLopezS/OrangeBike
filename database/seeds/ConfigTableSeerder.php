@@ -12,8 +12,7 @@ class ConfigTableSeeder extends Seeder {
             'dominio'		=> 'http://orange.dev/',
             'keywords'		=> 'administrador, cms',
             'description'	=> 'Administrador de contenido en L5',
-            'twitter'		=> 'marostsac',
-            'facebook'		=> 'marostsac'
+            'email'		=> 'orangebikeperu@gmail.com',
         ]);
     }
 

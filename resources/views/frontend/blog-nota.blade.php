@@ -3,63 +3,56 @@
 {{--*/
 $post_titulo = $noticia->titulo;
 $post_imagen = '/upload/'.$noticia->imagen_carpeta.'800x500/'.$noticia->imagen;
-$post_fecha = date_format(new DateTime($noticia->published_at), 'd F Y');
+$post_fecha = $noticia->fechaTexto($noticia->created_at);
 $post_descripcion = $noticia->descripcion;
 $post_contenido = $noticia->contenido;
 /*--}}
 
-@section('title')
-	{{ $post_titulo }} | @parent
-@stop
-
-@section('contenido_header')
-@stop
-
 @section('contenido_body')
 
-<div class="container">
-
-	<section class="col-lg-8">
-
-		<article class="blog-nota">
-
-			<div class="titulo-fecha">
-				<time datetime="{{ $noticia->published_at }}">{{ $post_fecha }}</time>
-				<h2>{{ $post_titulo }}</h2>
-				<p>{{ $post_descripcion }}</p>
-				<div class="social-media">
-					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5660b53de44c70e7" async="async"></script>
-					<div class="addthis_native_toolbox"></div>
-				</div>
-			</div>
-
-			<div class="imagen">
-				<img src="{{ $post_imagen }}" alt="" width="100%">
-			</div>
-
-			<div class="contenido">
-				{!! $post_contenido !!}
-			</div>
-			
-		</article>
-
-	</section>
-
-	<section class="col-lg-4">
+	<!-- Start Outter Wrapper -->
+	<div class="outter-wrapper body-wrapper">		
+		<div class="wrapper blog-roll ad-pad clearfix">
 		
-		@include('frontend.widgets.blog-categorias')
+			<!-- Start Main Column  -->
+			<div class="col-3-4">
+			
+				<div class="clearfix post">
 
-		@include('frontend.widgets.bicicentro')
+					<h1 class="title">{{ $post_titulo }}</h1>
+					
+					<div class="mosaic-block circle">
+						<img src="{{ $post_imagen }}" alt="{{ $post_titulo }}" />
+					</div>
+					<h6 class="meta"><a class="date" href="#">{{ $post_fecha }}</a></h6>
 
-		@include('frontend.widgets.galeria-videos')
+					<p class="lead">{{ $post_descripcion }}</p>
 
-		@include('frontend.widgets.galeria-fotos')
+                    {!! $post_contenido !!}
 
-	</section>
+				</div>
 
-</div>
+			</div>
 
-@stop
+			<!-- Start Right Sidebar  -->
+			<aside class="col-1-4 right last">
 
-@section('contenido_footer')
+				<div class="widget">
+				    <h3 class="widget-title">Noticias</h3>
+				    <ul class="list-1 widget-list">
+                        @foreach($ultimas as $item)
+                        {{--*/
+                        $nota_titulo = $item->titulo;
+                        $nota_url = route('home.blog.noticia', [$item->id, $item->slug_url]);
+                        /*--}}
+				    	<li><a href="{{ $nota_url }}">{{ $nota_titulo }}</a></li>
+                        @endforeach
+				    </ul>
+			    </div>
+
+			</aside>
+			
+		</div>
+	</div>
+
 @stop

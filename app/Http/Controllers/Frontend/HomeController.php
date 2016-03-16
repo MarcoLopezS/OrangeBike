@@ -5,11 +5,17 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use OrangeBike\Http\Controllers\Controller;
 
+use OrangeBike\Entities\Configuration;
+use OrangeBike\Entities\ContactoMensaje;
 use OrangeBike\Repositories\GalleryRepo;
 use OrangeBike\Repositories\GalleryPhotoRepo;
 use OrangeBike\Repositories\PostRepo;
 
+use OrangeBike\Traits\CaptchaTrait;
+
 class HomeController extends Controller{
+
+    use CaptchaTrait;
 
     private $galleryRepo;
     private $galleryPhotoRepo;
@@ -27,13 +33,13 @@ class HomeController extends Controller{
     public function index()
     {
         //NOTICIAS
-        $noticias = $this->postRepo->postPaginate(3);
+        $noticias = $this->postRepo->postPaginate(4);
 
         //GALERIA DE FOTOS
         $galeria = $this->galleryRepo->findGalleryLast();
         $fotos = $this->galleryPhotoRepo->findPhotosGallery($galeria->id, 6);
 
-        return view('frontend.home', compact('noticias','galeria','fotos'));
+        return view('frontend.index', compact('noticias','galeria','fotos'));
     }
 
     public function blog()
@@ -47,7 +53,53 @@ class HomeController extends Controller{
     {
         $noticia = $this->postRepo->postSelect($id, $url);
 
-    	return view('frontend.blog-nota', compact('noticia'));
+        $ultimas = $this->postRepo->lastPost();
+
+    	return view('frontend.blog-nota', compact('noticia','ultimas'));
+    }
+
+    public function contacto()
+    {
+        return view('frontend.contacto');
+    }
+
+    public function postContacto(Request $request)
+    {
+        //CONTACTO
+        $contacto = Configuration::whereId(1)->first();
+
+        //REGLAS
+        $rules = [
+            'nombre'  => 'required',
+            'email'   => 'required|email',
+            'mensaje' => 'required',
+            'g-recaptcha-response'  => 'required'
+        ];
+
+        //VALIDACION
+        $this->validate($request, $rules);
+
+        //VALIDACION DE CAPTCHA
+        if($this->captchaCheck() == false)
+        {
+            return redirect()->back()
+                ->withErrors(['Error de captcha'])
+                ->withInput();
+        }
+
+        //GUARDAR EN BD
+        $contMensaje = new ContactoMensaje($request->all());
+        $contMensaje->type = 'contacto';
+        $contMensaje->save();
+
+        $mensaje = 'Tu mensaje ha sido enviado.';
+
+        if($request->ajax())
+        {
+            return response()->json([
+                'message' => $mensaje
+            ]);
+        }
     }
 
     public function fotos()

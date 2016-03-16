@@ -337,10 +337,28 @@ class CreateInitialTable extends Migration {
             $table->string('dominio');
             $table->string('description');
             $table->text('keywords');
-            $table->string('twitter');
-            $table->string('facebook');
+            $table->string('email');
 
             $table->timestamps();
+        });
+
+        Schema::create('contacto_mensajes', function (Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('nombre');
+            $table->string('apellidos');
+            $table->string('email');
+            $table->string('telefono');
+            $table->boolean('telefono_whatsapp');
+            $table->text('mensaje');
+            $table->boolean('leido');
+            $table->enum('type', ['contacto', 'sugerencia']);
+
+            $table->integer('user_id')->nullable()->default(NULL);
+
+            $table->timestamps();
+            $table->softDeletes();
         });
 	}
 
@@ -351,6 +369,7 @@ class CreateInitialTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::drop('contacto_mensajes');
         Schema::drop('configurations');
         Schema::drop('gallery_photos');
         Schema::drop('galleries');

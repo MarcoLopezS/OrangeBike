@@ -1,139 +1,196 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>
-		@section('title')
-			Orange Bike Perú
-		@show
-	</title>
-	
-	{{-- Bootstrap y FontAwesome--}}
-	{!! HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css') !!}
-	{!! HTML::style('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css') !!}
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
 
-	{{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Page title + Description -->
+    <title>Orange Bike Perú</title>
+    <meta name="description" content="Sport is the best theme for sports clubs and centres">
 
-    {{-- Google Fonts --}}
-	{!! HTML::style('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800') !!}
-	{!! HTML::style('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700') !!}
-	{!! HTML::style('https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700') !!}
+    <!-- Style Sheets -->
+    {!! HTML::style('css/normalize.min.css') !!}
+    {!! HTML::style('css/styles.css') !!}
 
-	{{-- Revolution Slider --}}
-	{!! HTML::style('assets/revslider/css/extralayers.css') !!}
-	{!! HTML::style('assets/revslider/css/settings.css') !!}
+    {!! HTML::style('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css') !!}
+    {!! HTML::style('css/jquery.sidr.light.css') !!}
+    {!! HTML::style('js/media/mediaelementplayer.min.css') !!}
+    {!! HTML::style('js/owl-carousel/owl.carousel.css') !!}
+    {!! HTML::style('js/fancybox/jquery.fancybox.css?v=2.1.4') !!}
+    {!! HTML::style('css/mosaic.css') !!}
+    {!! HTML::style('css/responsive.css') !!}
+    {!! HTML::style('css/rs-plugin.css') !!}
+    {!! HTML::style('js/rs-plugin/css/settings.css') !!}
+    {!! HTML::style('css/tooltipster.css') !!}
+    {!! HTML::style('css/mega.css') !!}
 
-    {{-- Estilos --}}
-    {!! HTML::style('css/normalize.css') !!}
-    {!! HTML::style('css/estilos.css') !!}
+    {!! HTML::style('css/skin1.css') !!}
+    {!! HTML::style('css/full.css') !!}
 
-	@yield('contenido_header')
+    <!-- Scripts -->
+    {!! HTML::script('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') !!}
+
+    @yield('contenido_header')
 
 </head>
 <body>
-	
-	<header>
 
-		<div id="topbar">
-			<span class="topbar-right hidden-xs"></span>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-sm-4 col-xs-12 address wow fadeIn animated" data-wow-duratation="2s" style="visibility: visible; animation-name: fadeIn;">
-	                	<p>
-	                		<i class="fa fa-map-marker"></i> 
-	                		 Av. Perú 3893 - Bicicentro Orange
-	                	</p>
-	                </div>
-	                <div class="col-md-6 col-sm-4 col-xs-12 email-address wow fadeIn animated" data-wow-delay="0.3s" data-wow-duratation="2s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;">
-		                <p>
-		                	<i class="fa fa-envelope"></i>
-							<a href="mailto:orangebikeperu@gmail.com">orangebikeperu@gmail.com</a>
-		                </p>
-	                </div>
-	                <div class="col-md-3 col-sm-4 col-xs-12 pull-right social">
-		                <p class="social-skew">
-		                	<a target="_blank" href="https://www.facebook.com/OrangeBikePeru"><i class="fa fa-facebook"></i></a>
-		                	<a target="_blank" href="http://twitter.com/orangebikeperu"><i class="fa fa-twitter"></i></a>
-		                	<a target="_blank" href="https://www.youtube.com/channel/UCj8DKvrLFXfCcTcbgDhL0KA"><i class="fa fa-youtube"></i></a>
-		                	<a target="_blank" href="http://instagram.com/orangebikeperu"><i class="fa fa-instagram"></i></a>
-		                </p>
-	                </div>
-				</div>				
-			</div>			
-		</div>
+    <!-- Pre Header Area -->
+    <div class="outter-wrapper pre-header-area header-style-1">
+        <div class="wrapper clearfix">
 
-		<div id="main-navigation">
-		    <div id="navigation">
-		        <nav class="navbar navbar-default" role="navigation">
-		            <div class="container">
-		                <div class="row">
-		                    <!--  Brand and toggle get grouped for better mobile display -->
-		                    <div class="col-lg-3 col-md-2 col-sm-3 col-xs-12">
-			                    <div class="navbar-header">
-			                        <a class="navbar-brand wow bounceIn logo col-xs-8 animated" data-wow-duration="2s" data-wow-delay="1s" href="/" 
-			                        style="visibility: visible; animation-duration: 2s; animation-delay: 1s; animation-name: bounceIn;">
-			                            <img height="40" src="/imagenes/logo.jpg" alt="Orange Bike Perú" class="img-responsive"> 
-			                        </a>
-			                        <div class="col-xs-4">
-				                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fixed-collapse-navbar">
-				                        	<span class="sr-only">Menú</span>
-				                        	<span class="icon-bar"></span>
-				                        	<span class="icon-bar"></span>
-				                        	<span class="icon-bar"></span>
-				                        </button>
-			                        </div>
-			                    </div>
-		                    </div>
-		                    <!--  Collect the nav links, forms, and other content for toggling --> 
-		                    <div class="col-lg-9 col-md-10 col-sm-9 col-xs-12">
-			                    <div class="collapse navbar-collapse nav-collapse" id="fixed-collapse-navbar">
-			                        <ul class="nav navbar-nav navbar-right cl-effect-1">
-			                            <li {!! (Request::is('/') ? 'class="active"' : '') !!} ><a href="/">Inicio</a></li>
-										<li {!! (Request::is('blog*') ? 'class="active"' : '') !!} ><a href="/blog">Blog</a></li>
-										<li {!! (Request::is('fotos*') ? 'class="active"' : '') !!} ><a href="/fotos">Fotos</a></li>
-										<li {!! (Request::is('videos*') ? 'class="active"' : '') !!} ><a href="/videos">Videos</a></li>
-										<li {!! (Request::is('bicicentro*') ? 'class="active"' : '') !!} ><a href="/bicicentro">Bicicentro</a></li>
-										<li {!! (Request::is('contacto*') ? 'class="active"' : '') !!} ><a href="/contacto">Contacto</a></li>
-			                        </ul>
-			                    </div>
-		                    </div>
-		                </div>
-		            </div>
-		        </nav>
-		    </div>
-		</div>
+            <div class="pre-header-left left">
+                Orange Bike Perú - Adictos al Cycling
+            </div>
 
-		@include('frontend.widgets.slider')
-		
-	</header>
+            <div class="pre-header-right right">
+                <ul class="right social-links boxy">
+                    <li><a class="fa" title="Facebook" href="#">&#xf09a;</a></li>
+                    <li><a class="fa" title="Youtube" href="#">&#xf16a;</a></li>
+                </ul>
+            </div>
 
-	@yield('contenido_body')
-	
-	<footer>
+        </div>
+    </div>
 
-		<div class="container">
-			
-			<div class="row">
-				
-				© Orange Bike Perú 2015
+    <!-- Header Area -->
+    <div class="outter-wrapper header-area header-style-1">
+        <div class="wrapper clearfix logo-container">
+            <header>
+                <div class="clearfix">
 
-			</div>
+                    <div class="main-header-left left adjust-left">
+                        <!-- Start Logo -->
+                        <a class="logo" href="/">
+                            <img src="/imagenes/logo.png" alt="Sport" />
+                        </a>
+                    </div>
 
-		</div>
-		
-	</footer>
 
-	{{-- jQuery y Bootstrap--}}
-	{!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') !!}
-	{!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') !!}
+                    <div class="main-header-right right adjust-right">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <style type="text/css">
+                            .adslot_header{ width: 728px; height: 90px; margin: 10px auto; }
+                        </style>
+                        <!-- Orange Bike -->
+                        <ins class="adsbygoogle adslot_header"
+                             style="display:block"
+                             data-ad-client="ca-pub-3674889010429322"
+                             data-ad-slot="6956526345"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
 
-	@yield('contenido_footer')
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <!-- Post Header Area -->
+    <div class="outter-wrapper nav-container post-header-area header-style-1">
+
+        <!-- Start Mobile Menu Icon -->
+        <div id="mobile-header" class="">
+            <a id="responsive-menu-button" href="#sidr-main">
+                <em class="fa fa-bars"></em> Menu
+            </a>
+        </div>
+
+
+        <div id="navigation" class="clearfix wrapper">
+            <nav class="nav megamenu_container">
+                <ul id="nav" class="right megamenu">
+                    <li class="nav-parent"><a href="/">Inicio</a></li>
+                    <li class="nav-parent"><a href="#">Integrantes</a></li>
+                    <li class="nav-parent"><a href="#">Galería de Fotos</a></li>
+                    <li class="nav-parent"><a href="/blog">Blog</a></li>
+                    <li class="nav-parent"><a href="/contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+    @yield('contenido_body')
+
+    <!-- Start Outter Wrapper -->
+    <div class="outter-wrapper footer-wrapper">
+        <div class="wrapper clearfix">
+            <!-- Start Widget -->
+            <div class="col-1-3 widget last">
+                <a class="logo" href="/">
+                    <img src="/imagenes/logo-letra.png" alt="Sport" />
+                </a>
+                <ul class="list-1">
+                    <li><strong>Dirección:</strong> Av. Perú 3893 - SMP</li>
+                    <li><strong><a href="contact.html">Ver Mapa</a></strong></li>
+                </ul>
+            </div>
+
+            <div class="col-1-3 widget"></div>
+
+            <!-- Start Widget -->
+            <div class="col-1-3 widget">
+                <h3 class="widget-title">Contactanos</h3>
+                <ul class="list-1">
+                    <li><strong>Teléfono:</strong> 573-5415</li>
+                    <li><strong>Celular:</strong> 955-051-298</li>
+                    <li><a href="#">orangebikeperu@gmail.com</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Start Outter Wrapper -->
+    <div class="outter-wrapper base-wrapper">
+        <div class="wrapper clearfix">
+            <div class="left">© Copyright 2016</div>
+
+            <!-- Social Icons -->
+            <ul class="social-links right">
+                <li><a class="fa" title="Facebook" href="#">&#xf09a;</a></li>
+                <li><a class="fa" title="Youtube" href="#">&#xf16a;</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Load jQuery -->
+    {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js') !!}
+    {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js') !!}
+    {!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js') !!}
+    {!! HTML::script('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js') !!}
+
+    <!-- Start Scripts -->
+    {!! HTML::script('js/rs-plugin/js/jquery.themepunch.tools.min.js') !!}
+    {!! HTML::script('js/rs-plugin/js/jquery.themepunch.revolution.min.js') !!}
+    {!! HTML::script('js/jquery.sidr.js') !!}
+    {!! HTML::script('js/fancybox/jquery.fancybox.js?v=2.1.4') !!}
+    {!! HTML::script('js/cleantabs.jquery.js') !!}
+    {!! HTML::script('js/fitvids.min.js') !!}
+    {!! HTML::script('js/jquery.scrollUp.min.js') !!}
+    {!! HTML::script('js/owl-carousel/owl.carousel.js') !!}
+    {!! HTML::script('js/selectivizr-min.js') !!}
+    {!! HTML::script('js/placeholder.js') !!}
+    {!! HTML::script('js/jquery.stellar.min.js') !!}
+    {!! HTML::script('js/mosaic.1.0.1.js') !!}
+    {!! HTML::script('js/jquery.isotope.js') !!}
+    {!! HTML::script('js/toggle.js') !!}
+    {!! HTML::script('js/jquery.tooltipster.js') !!}
+    {!! HTML::script('js/jquery.countdown.js') !!}
+    {!! HTML::script('js/jquery.sticky.js') !!}
+    {!! HTML::script('js/slider-3.js') !!}
+
+    {!! HTML::script('js/main.js') !!}
+
+    @yield('contenido_footer')
 
 </body>
 </html>
