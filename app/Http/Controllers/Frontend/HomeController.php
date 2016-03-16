@@ -10,6 +10,7 @@ use OrangeBike\Entities\ContactoMensaje;
 use OrangeBike\Repositories\GalleryRepo;
 use OrangeBike\Repositories\GalleryPhotoRepo;
 use OrangeBike\Repositories\PostRepo;
+use OrangeBike\Repositories\SliderRepo;
 
 use OrangeBike\Traits\CaptchaTrait;
 
@@ -20,14 +21,17 @@ class HomeController extends Controller{
     private $galleryRepo;
     private $galleryPhotoRepo;
     private $postRepo;
+    private $sliderRepo;
 
     public function __construct(GalleryRepo $galleryRepo,
                                 GalleryPhotoRepo $galleryPhotoRepo,
-                                PostRepo $postRepo)
+                                PostRepo $postRepo,
+                                SliderRepo $sliderRepo)
     {
         $this->galleryRepo = $galleryRepo;
         $this->galleryPhotoRepo = $galleryPhotoRepo;
         $this->postRepo = $postRepo;
+        $this->sliderRepo = $sliderRepo;
     }
 
     public function index()
@@ -39,7 +43,10 @@ class HomeController extends Controller{
         $galeria = $this->galleryRepo->findGalleryLast();
         $fotos = $this->galleryPhotoRepo->findPhotosGallery($galeria->id, 6);
 
-        return view('frontend.index', compact('noticias','galeria','fotos'));
+        //SLIDER
+        $slider = $this->sliderRepo->where('id',1)->first();
+
+        return view('frontend.index', compact('noticias','galeria','fotos','slider'));
     }
 
     public function blog()
