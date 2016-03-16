@@ -5,3 +5,9 @@
 Thumbs.db
 /public/upload
 .idea/
+public/assets/*.png
+public/assets/*.jpg
+public/css/settings.css
+public/fonts/font-awesome/*
+public/fonts/pe-icon-7-stroke/*
+public/fonts/revicons/*
