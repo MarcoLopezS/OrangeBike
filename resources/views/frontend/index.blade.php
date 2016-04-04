@@ -15,9 +15,9 @@
 			<div class="col-1-2">
 				<h3>Bienvenido a nuestro Club</h3>
 				
-				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-				
-				<p>Morbi leo risus, porta ac conse ctetur ac, vestiosite Duis mollis, est non commodo luctus, nisi erat porttitor ligula est non commodo sed diam. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo.</p> 
+				<p class="lead">Hola, somos Orange Bike Perú un equipo de ciclismo inscrito en la Federación Deportiva Nacional de Ciclismo (FDNC), que se inició hace 4 años de la unión de personas amantes de este deporte y de la aventura sobre dos ruedas.</p>
+
+                <p class="lead">Nuestra meta es llegar más lejos y elevar nuestro nivel deportivo para así estar a la altura de las grandes competencias.</p>
 				
 				<p><strong>Orange Bike Perú</strong></p>
 				 					
@@ -26,6 +26,8 @@
 			<!-- Column -->
 			<div class="col-1-2 last">
 				<h3>Auspiciadores 2016</h3>
+
+                <p><img src="/imagenes/auspicios.jpg" alt="Auspicios" /></p>
 
 			</div>
 
