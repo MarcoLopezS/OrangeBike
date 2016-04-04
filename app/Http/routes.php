@@ -13,8 +13,16 @@ Route::group(['namespace' => 'Frontend'], function() {
 		Route::get('tag/{url}', ['as' => 'home.blog.tag', 'uses' => 'HomeController@noticiaTag']);
 	});
 
+    //GALERIA DE FOTOS
+    Route::get('fotos', ['as' => 'home.fotos', 'uses' => 'HomeController@fotos']);
+    Route::get('fotos/{id}-{galeria}', ['as' => 'home.fotos.galeria', 'uses' => 'HomeController@fotosGaleria']);
+
+    //CONTACTO
 	Route::get('contacto', ['as' => 'home.contacto', 'uses' => 'HomeController@contacto']);
     Route::post('contacto', ['as' => 'home.contacto.post', 'uses' => 'HomeController@postContacto']);
+
+    //TEAM
+    Route::get('team', ['as' => 'home.team', 'uses' => 'HomeController@team']);
 
 });
 
@@ -87,6 +95,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 		Route::post('video/url', ['as' => 'admin.gallery.video.slugUrl', 'uses' => 'GalleryVideosController@slugUrl']);
 
 	});
+
+    //TEAM - MODALIDAD
+    Route::resource('team-modality', 'TeamModalityController');
+
+    //TEAM - INTEGRANTE
+    Route::resource('team-member', 'TeamMemberController');
+
+    //TEAM - RESULTADOS
+    Route::resource('team-member.result', 'TeamMemberResultController');
 
     //SLIDER
     Route::resource('slider', 'SlidersController', ['only' => ['edit','update']]);
