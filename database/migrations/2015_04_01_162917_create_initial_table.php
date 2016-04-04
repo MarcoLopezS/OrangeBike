@@ -18,8 +18,9 @@ class CreateInitialTable extends Migration {
 
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('type', ['admin', 'editor']);
             $table->boolean('active');
+            $table->string('code',60);
+            $table->enum('type', ['admin', 'editor']);
 
             $table->rememberToken();
 
@@ -53,14 +54,11 @@ class CreateInitialTable extends Migration {
             $table->string('social_instagram');
             $table->string('social_linkedin');
             $table->string('social_tumblr');
-            
-            $table->string('activacion_codigo', 40);
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
         	$table->timestamps();
-        	$table->softDeletes();
         });
 
         Schema::create('tags', function(Blueprint $table)
@@ -196,74 +194,6 @@ class CreateInitialTable extends Migration {
             $table->softDeletes(); //deleted_at
         });
 
-        Schema::create('menus', function(Blueprint $table)
-        {
-            $table->increments('id');
-
-            $table->string('titulo');
-            $table->string('slug_url');
-            $table->integer('object_id');
-            $table->enum('type', ['category','page','link']);
-            $table->integer('parent_id');
-            $table->integer('orden');
-
-            $table->timestamps(); //created_at, update_at
-            $table->softDeletes(); //deleted_at
-        });
-        
-        Schema::create('columnists', function(Blueprint $table)
-        {
-        	$table->increments('id');
-        	
-            $table->string('slug_url');
-            $table->string('nombre', 100);
-            $table->string('apellidos', 100);
-            $table->text('descripcion');
-
-            $table->string('foto');
-            $table->string('imagen_portada');
-
-            $table->boolean('publicar');
-            $table->smallInteger('orden');
-
-            $table->boolean('dia_lunes');
-            $table->boolean('dia_martes');
-            $table->boolean('dia_miercoles');
-            $table->boolean('dia_jueves');
-            $table->boolean('dia_viernes');
-            $table->boolean('dia_sabado');
-            $table->boolean('dia_domingo');
-
-        	$table->timestamps();
-        	$table->softDeletes();	
-        });
-
-        Schema::create('columns', function(Blueprint $table)
-        {
-            $table->increments('id');
-
-            $table->string('titulo');
-            $table->string('slug_url');
-            $table->string('descripcion');
-            $table->text('contenido');
-            $table->string('imagen');
-            $table->string('imagen_carpeta');
-            $table->string('video');
-
-            $table->boolean('publicar')->default(false);
-            $table->integer('contador')->unsigned();
-
-            $table->integer('columnist_id')->unsigned()->nullable();
-            $table->foreign('columnist_id')->references('id')->on('columnists');
-
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-
-            $table->timestamp('published_at');
-            $table->timestamps(); //created_at, update_at
-            $table->softDeletes(); //deleted_at
-        });
-
         Schema::create('videos', function(Blueprint $table)
         {
             $table->increments('id');
@@ -339,6 +269,10 @@ class CreateInitialTable extends Migration {
             $table->text('keywords');
             $table->string('email');
 
+            $table->integer('user_id')->nullable()->default(NULL);
+
+            $table->text('history');
+
             $table->timestamps();
         });
 
@@ -373,6 +307,109 @@ class CreateInitialTable extends Migration {
 
             $table->timestamps();
         });
+
+        Schema::create('social_media', function (Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('facebook');
+            $table->string('google');
+            $table->string('pinterest');
+            $table->string('skype');
+            $table->string('tumblr');
+            $table->string('twitter');
+            $table->string('youtube');
+            $table->string('whatsapp');
+
+            $table->integer('user_id')->nullable()->default(NULL);
+
+            $table->text('history');
+
+            $table->timestamps();
+        });
+        
+        Schema::create('team_modalities', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('titulo');
+            $table->string('slug_url');
+            $table->string('descripcion');
+
+            $table->boolean('publicar')->default(false);
+
+            $table->integer('user_id')->nullable()->default(NULL);
+
+            $table->text('history');
+
+            $table->timestamps();
+        });
+
+        Schema::create('team_members', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('nombre');
+            $table->string('apellidos');
+            $table->text('descripcion');
+            $table->date('fecha_nacimiento');
+            $table->string('lugar_nacimiento');
+
+            $table->string('imagen');
+            $table->string('imagen_carpeta');
+
+            $table->string('modality');
+
+            $table->boolean('publicar')->default(false);
+
+            $table->integer('user_id')->nullable()->default(NULL);
+
+            $table->text('history');
+
+            $table->timestamps();
+        });
+
+        Schema::create('team_member_modalities', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->integer('team_member_id');
+            $table->integer('team_modality_id');
+
+            $table->timestamps();
+        });
+
+
+        Schema::create('team_member_results', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->integer('team_member_id')->nullable();
+
+            $table->integer('puesto');
+            $table->string('competencia');
+            $table->date('fecha');
+
+            $table->integer('user_id')->nullable()->default(NULL);
+
+            $table->timestamps();
+        });
+
+        Schema::create('histories', function(Blueprint $table)
+        {
+            $table->increments('id');
+
+            $table->string('tabla');
+            $table->integer('tabla_id')->unsigned()->nullable();
+
+            $table->integer('user_id')->nullable()->default(NULL);
+
+            $table->enum('type', ['create','update', 'restore', 'delete']);
+            $table->text('descripcion');
+
+            $table->timestamps();
+        });
+
 	}
 
 	/**
@@ -382,15 +419,18 @@ class CreateInitialTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::drop('histories');
+        Schema::drop('team_member_results');
+        Schema::drop('team_member_modalities');
+        Schema::drop('team_members');
+        Schema::drop('team_modalities');
+        Schema::drop('social_media');
         Schema::drop('sliders');
         Schema::drop('contacto_mensajes');
         Schema::drop('configurations');
         Schema::drop('gallery_photos');
         Schema::drop('galleries');
         Schema::drop('videos');
-        Schema::drop('columns');
-        Schema::drop('columnists');
-        Schema::drop('menus');
         Schema::drop('pages');
         Schema::drop('post_photos');
         Schema::drop('post_histories');
