@@ -106,8 +106,7 @@
             <nav class="nav megamenu_container">
                 <ul id="nav" class="right megamenu">
                     <li class="nav-parent"><a href="/">Inicio</a></li>
-                    <li class="nav-parent"><a href="#">Integrantes</a></li>
-                    <li class="nav-parent"><a href="#">Galería de Fotos</a></li>
+                    <li class="nav-parent"><a href="/fotos">Galería de Fotos</a></li>
                     <li class="nav-parent"><a href="/blog">Blog</a></li>
                     <li class="nav-parent"><a href="/contacto">Contacto</a></li>
                 </ul>
@@ -161,9 +160,8 @@
     </div>
 
     <!-- Load jQuery -->
-    {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js') !!}
+    {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js') !!}
     {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js') !!}
-    {!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js') !!}
     {!! HTML::script('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js') !!}
 
     <!-- Start Scripts -->
@@ -182,9 +180,9 @@
     {!! HTML::script('js/jquery.countdown.js') !!}
     {!! HTML::script('js/jquery.sticky.js') !!}
 
-    {!! HTML::script('js/main.js') !!}
-
     @yield('contenido_footer')
+
+    {!! HTML::script('js/main.js') !!}
 
 </body>
 </html>

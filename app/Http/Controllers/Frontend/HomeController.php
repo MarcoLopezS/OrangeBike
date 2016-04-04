@@ -11,6 +11,7 @@ use OrangeBike\Repositories\GalleryRepo;
 use OrangeBike\Repositories\GalleryPhotoRepo;
 use OrangeBike\Repositories\PostRepo;
 use OrangeBike\Repositories\SliderRepo;
+use OrangeBike\Repositories\TeamModalityRepo;
 
 use OrangeBike\Traits\CaptchaTrait;
 
@@ -18,20 +19,23 @@ class HomeController extends Controller{
 
     use CaptchaTrait;
 
-    private $galleryRepo;
-    private $galleryPhotoRepo;
-    private $postRepo;
-    private $sliderRepo;
+    protected $galleryRepo;
+    protected $galleryPhotoRepo;
+    protected $postRepo;
+    protected $sliderRepo;
+    protected $teamModalityRepo;
 
     public function __construct(GalleryRepo $galleryRepo,
                                 GalleryPhotoRepo $galleryPhotoRepo,
                                 PostRepo $postRepo,
-                                SliderRepo $sliderRepo)
+                                SliderRepo $sliderRepo,
+                                TeamModalityRepo $teamModalityRepo)
     {
         $this->galleryRepo = $galleryRepo;
         $this->galleryPhotoRepo = $galleryPhotoRepo;
         $this->postRepo = $postRepo;
         $this->sliderRepo = $sliderRepo;
+        $this->teamModalityRepo = $teamModalityRepo;
     }
 
     public function index()
@@ -47,6 +51,25 @@ class HomeController extends Controller{
         $slider = $this->sliderRepo->where('id',1)->first();
 
         return view('frontend.index', compact('noticias','galeria','fotos','slider'));
+    }
+
+    public function fotos()
+    {
+        //GALERIA
+        $galeria = $this->galleryRepo->orderByPagination('published_at', 'desc', 3);
+
+        return view('frontend.galerias', compact('galeria', 'fotos'));
+    }
+
+    public function fotosGaleria($id, $galeria)
+    {
+        //GALERIA
+        $galerias = $this->galleryRepo->findOrFail($id);
+
+        //FOTOS
+        $fotos = $this->galleryPhotoRepo->findPhotosGallery($id, 100);
+
+        return view('frontend.galerias-fotos', compact('galerias', 'fotos'));
     }
 
     public function blog()
@@ -109,19 +132,12 @@ class HomeController extends Controller{
         }
     }
 
-    public function fotos()
+    public function team()
     {
-    	return view('frontend.fotos');
-    }
+        //MODALIDAD
+        $modality = $this->teamModalityRepo->orderBy('titulo', 'desc')->all();
 
-    public function fotosNota()
-    {
-    	return view('frontend.fotos-nota');
-    }
-
-    public function videos()
-    {
-    	return view('frontend.videos');
+    	return view('frontend.team', compact('modality'));
     }
 
 }
