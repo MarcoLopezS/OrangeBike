@@ -18,7 +18,7 @@
 {!! HTML::style('https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css') !!}
 
 {{-- GLOBAL MANDATORY STYLES --}}
-{!! HTML::style('assets/global/plugins/simple-line-icons/simple-line-icons.min.css') !!}
+{!! HTML::style('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.3/css/simple-line-icons.css') !!}
 {!! HTML::style('assets/global/plugins/uniform/css/uniform.default.css') !!}
 
 {{-- THEME STYLES --}}
@@ -162,6 +162,26 @@
                         <i class="icon-screen-desktop"></i>
                         <span class="title">Slider</span>
                     </a>
+                </li>
+
+                <li {!! (Request::is('admin/team*') ? 'class="active open"' : '') !!}>
+                    <a href="javascript:;">
+                        <i class="icon-rocket"></i>
+                        <span class="title">Equipo</span>
+                        {!! (Request::is('admin/team*') ? '<span class="arrow open"></span>' : '<span class="arrow"></span>') !!}
+                    </a>
+                    <ul class="sub-menu">
+                        <li {!! (Request::is('admin/team-modality*') ? 'class="active"' : '') !!}>
+                            <a href="{{ route('admin.team-modality.index') }}">
+                                <i class="icon-mustache"></i>
+                                Modalidad</a>
+                        </li>
+                        <li {!! (Request::is('admin/team-member*') ? 'class="active"' : '') !!}>
+                            <a href="{{ route('admin.team-member.index') }}">
+                                <i class="icon-ghost"></i>
+                                Integrante</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li {!! (Request::is('admin/contacto*') ? 'class="active open"' : '') !!}>
