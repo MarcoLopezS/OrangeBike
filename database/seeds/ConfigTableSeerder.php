@@ -14,6 +14,13 @@ class ConfigTableSeeder extends Seeder {
             'description'	=> 'Administrador de contenido en L5',
             'email'		=> 'orangebikeperu@gmail.com',
         ]);
+
+        \DB::table('sliders')->insert([
+            'id' => 1,
+            'header' => '',
+            'body'  => '',
+            'footer' => ''
+        ]);
     }
 
 }

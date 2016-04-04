@@ -12,7 +12,7 @@ class PostTableSeeder extends Seeder {
     {
         $faker = Faker::create();
 
-        for($i=1; $i<=100; $i++)
+        for($i=1; $i<=15; $i++)
         {
             $titulo = $faker->sentence($nbWords = 8);
             $slug_url = Str::slug($titulo);
