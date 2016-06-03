@@ -11,7 +11,8 @@
 
     <!-- Page title + Description -->
     <title>Orange Bike Perú</title>
-    <meta name="description" content="Sport is the best theme for sports clubs and centres">
+    <meta name="description" content="Somos equipo de ciclismo inscrito en la Federación Deportiva Peruana de Ciclismo, que se inició hace 4 años de la unión de personas amantes de este deporte y de la aventura sobre dos ruedas." />
+    <meta name="keywords" content="orange bike, ciclismo, ruta, pista, mtb, xco, cucya, pachacamac, veldromo, campeonato apertura">
 
     <!-- Style Sheets -->
     {!! HTML::style('css/normalize.min.css') !!}
@@ -48,8 +49,8 @@
 
             <div class="pre-header-right right">
                 <ul class="right social-links boxy">
-                    <li><a class="fa" title="Facebook" href="#">&#xf09a;</a></li>
-                    <li><a class="fa" title="Youtube" href="#">&#xf16a;</a></li>
+                    <li><a class="fa" target="_blank" title="Facebook" href="https://www.facebook.com/OrangeBikePeru/">&#xf09a;</a></li>
+                    <li><a class="fa" target="_blank" title="Youtube" href="https://www.youtube.com/channel/UCj8DKvrLFXfCcTcbgDhL0KA">&#xf16a;</a></li>
                 </ul>
             </div>
 
@@ -127,7 +128,7 @@
                 </a>
                 <ul class="list-1">
                     <li><strong>Dirección:</strong> Av. Perú 3893 - SMP</li>
-                    <li><strong><a href="contact.html">Ver Mapa</a></strong></li>
+                    <li><strong><a href="/contacto">Ver Mapa</a></strong></li>
                 </ul>
             </div>
 
@@ -153,8 +154,8 @@
 
             <!-- Social Icons -->
             <ul class="social-links right">
-                <li><a class="fa" title="Facebook" href="#">&#xf09a;</a></li>
-                <li><a class="fa" title="Youtube" href="#">&#xf16a;</a></li>
+                <li><a class="fa" target="_blank" title="Facebook" href="https://www.facebook.com/OrangeBikePeru/">&#xf09a;</a></li>
+                <li><a class="fa" target="_blank" title="Youtube" href="https://www.youtube.com/channel/UCj8DKvrLFXfCcTcbgDhL0KA">&#xf16a;</a></li>
             </ul>
         </div>
     </div>
@@ -183,6 +184,16 @@
     @yield('contenido_footer')
 
     {!! HTML::script('js/main.js') !!}
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-20229980-34', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 </body>
 </html>
