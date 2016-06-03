@@ -27,8 +27,11 @@ Route::group(['namespace' => 'Frontend'], function() {
 });
 
 
-//IMAGEN
+//CAMBIAR ANCHO Y ALTO DE IMAGEN
 Route::get('/upload/{folder}/{width}x{height}/{image}', ['as' => 'image.adaptiveResize', 'uses' => 'ImageController@adaptiveResize']);
+
+//CAMBIAR ANCHO DE IMAGNE
+Route::get('/upload/{folder}/{width}/{image}', ['as' => 'image.withResize', 'uses' => 'ImageController@withResize']);
 
 //LOGIN - PASSWORD
 Route::controllers([

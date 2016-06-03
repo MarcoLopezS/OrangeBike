@@ -28,10 +28,11 @@ $galeria_imagen = '/upload/'.$galerias->imagen_carpeta.'850x500/'.$galerias->ima
                         @foreach($fotos as $item)
                         {{--*/
                         $fotos_imagen = '/upload/'.$item->imagen_carpeta.$item->imagen;
+                        $fotos_imagen_thumb = '/upload/'.$item->imagen_carpeta.'260/'.$item->imagen;
                         /*--}}
 						<div class="col-1-4 element">
 							<div class="mosaic-block circle"><a href="{{ $fotos_imagen }}" class="mosaic-overlay fancybox" data-fancybox-group="gallery"></a>
-							<div class="mosaic-backdrop"><img src="{{ $fotos_imagen }}" alt="Mock" /></div></div>
+							<div class="mosaic-backdrop"><img src="{{ $fotos_imagen_thumb }}" alt="Mock" /></div></div>
 						</div>
                         @endforeach
 							
