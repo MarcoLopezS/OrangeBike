@@ -34,6 +34,8 @@
     <!-- Scripts -->
     {!! HTML::script('js/vendor/modernizr-2.6.2-respond-1.1.0.min.js') !!}
 
+    <meta property="og:image" content='http://orangebikeperu.com/imagenes/logo-letra.jpg' >
+
     @yield('contenido_header')
 
 </head>
@@ -66,12 +68,12 @@
                     <div class="main-header-left left adjust-left">
                         <!-- Start Logo -->
                         <a class="logo" href="/">
-                            <img src="/imagenes/logo.png" alt="Sport" />
+                            <p><img src="/imagenes/logo.png" alt="Logo" /></p>
                         </a>
                     </div>
 
 
-                    <div class="main-header-right right adjust-right">
+                    <div class="main-header-right right adjust-right visible-lg visible-md">
                         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                         <style type="text/css">
                             .adslot_header{ width: 728px; height: 90px; margin: 10px auto; }
