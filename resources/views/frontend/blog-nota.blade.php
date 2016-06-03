@@ -2,11 +2,23 @@
 
 {{--*/
 $post_titulo = $noticia->titulo;
+$post_url = route('home.blog.noticia', [$noticia->id, $noticia->slug_url]);
 $post_imagen = '/upload/'.$noticia->imagen_carpeta.'800x500/'.$noticia->imagen;
 $post_fecha = $noticia->fechaTexto($noticia->created_at);
 $post_descripcion = $noticia->descripcion;
 $post_contenido = $noticia->contenido;
 /*--}}
+
+@section('contenido_header')
+<!-- Open Graph -->
+<meta property="og:title" content='{{ $post_titulo  }}'>
+<meta property="og:type" content='article' >
+<meta property="og:url" content='{{ $post_url }}' >
+<meta property="og:image" content='http://orangebikeperu.com{{ $post_imagen }}' >
+<meta property="og:site_name" content='Orange Bike Perú' >
+<meta property="fb:admins" content='620599104769893'>
+<meta property="og:description" content='{{ $post_descripcion }}'>
+@stop
 
 @section('contenido_body')
 
